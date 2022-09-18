@@ -1,0 +1,25 @@
+<div class="card my-5">
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col-md-6">Nom de l'itineraire</th>
+                    <th scope="col-md-2">Description</th>
+                    <th scope="col-md-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let itineraire of itineraires">
+                    <td>{{ itineraire.nom }}</td>
+                    <td>{{ itineraire.description }}</td>
+                    <td>
+                        <button class="btn btn-danger" (click)="deleteItineraire(itineraire)">X</button>
+                        <button class="btn btn-warning" (click)="updateItineraire(itineraire)">Edit</button>
+                        <button class="btn btn-info"    (click)="itineraireDetails(itineraire)">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> 
+

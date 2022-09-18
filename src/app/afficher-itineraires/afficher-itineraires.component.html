@@ -1,0 +1,18 @@
+<h2>Itineraire Details</h2> 
+
+<hr/>
+<div *ngIf="itineraire">
+  <div>
+    <label><b>Nom de l'itinéraire : </b></label> {{itineraire.nom}}
+  </div>
+  <div>
+    <label><b>Description : </b></label> {{itineraire.description}}
+  </div>
+  <div>
+    <label><b>n° du niveau: </b></label> {{itineraire.niveau_id}}
+  </div>  
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Retour à la liste d'itinéraire</button><br>

@@ -1,0 +1,38 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #itineraireForm="ngForm">
+        <div class="form-group">
+          <label for="nom">Nom de l'itinéraire</label>
+          <input type="text" [(ngModel)]="itineraire.nom" 
+            class="form-control" 
+            id="nom" 
+            name="nom" 
+            placeholder="Entrer le nom de l'itineraire"
+            required #nom="ngModel">
+        </div>
+        <div [hidden]="!nom.pristine" class="alert alert-danger">Nom is required</div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" [(ngModel)]="itineraire.description" 
+            class="form-control" 
+            id="description" 
+            name="description" 
+            placeholder="Ajouter une description"
+            required #description="ngModel">
+          <div [hidden]="!description.pristine" class="alert alert-danger">Description is required</div>
+        </div>
+        <div class="form-group">
+            <label for="niveau_id">n° du niveau</label>
+            <input type="number" [(ngModel)]="itineraire.niveau_id" 
+              class="form-control" 
+              id="niveau_id" 
+              name="niveau_id" 
+              placeholder="Ajouter une description"
+              required #niveau_id="ngModel">
+            <div [hidden]="!niveau_id.pristine" class="alert alert-danger">Niveau is required</div>
+          </div>
+        <button type="submit" [disabled]="!itineraireForm.form.valid" 
+          class="btn btn-success">Submit</button>
+      </form>
+    </div>
+  </div>
