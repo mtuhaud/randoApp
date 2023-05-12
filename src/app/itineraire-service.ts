@@ -30,7 +30,7 @@ export class ItineraireService {
     return this.http.post(this.itineraireUrl + '/itineraire', itineraire);
   }
 
-  public deleteItineraire(id:number){
+  deleteItineraire(id:number){
     return this.http.delete(this.itineraireUrl + '/cancel/' + id);
   }
 

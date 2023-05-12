@@ -14,13 +14,17 @@ export class ItineraireListComponent implements OnInit {
   constructor(private itineraireService: ItineraireService, private router: Router) { }
 
   ngOnInit(): void {
-    let resp = this.itineraireService.findAll();
-    resp.subscribe((data)=>this.itineraires=data);
+    this.itineraireService.findAll().subscribe(
+      data => this.itineraires = data
+    )
   }
 
-  deleteItineraire(itineraire){
-    let resp = this.itineraireService.deleteItineraire(itineraire.itineraire_id);
-    resp.subscribe((data)=>this.itineraires=data);
+  deleteItineraire(itineraire) {
+    this.itineraireService.deleteItineraire(itineraire.itineraire_id).subscribe(() => {
+      this.itineraireService.findAll().subscribe((data) => {
+        this.itineraires = data;
+      });
+    });
   }
 
   updateItineraire(itineraire: Itineraire):void{
